@@ -197,7 +197,20 @@
             carr = [[LYCarrouselView alloc] initWithFrame:CGRectMake(0, 0, self.customView.bounds.size.width, self.customView.bounds.size.height) images:self.oneStoryPictures callback:^(NSInteger index, NSInteger event) {
 
                 NSLog(@"%ld %@", index, event == 1 ? @"点击" : @"长按");
+                
+                
+                [weakSelf.ZJAPopView dismiss];
+                [weakSelf hiddenBtnAndSlider];
+                
+                
+                [weakSelf.ZJAPopView2 pop];
+                //1.2弹出新的弹框 - 点击没有拿到自己画的东西
+                weakSelf.systemImageView.image = [UIImage OriginalImageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld",index+1]]];
             }];
+            
+            
+            
+            
             
         }else{
             
@@ -224,7 +237,7 @@
                 [weakSelf hiddenBtnAndSlider];
                 
                 
-                [weakSelf.ZJAPopView2 pop];
+                [weakSelf.ZJAPopView2 pop];//ZJAPopView 包含跑马灯的弹框 ZJAPopView2展示具体点击图片的弹框
                 //1.2弹出新的弹框
                 weakSelf.systemImageView.image = [UIImage OriginalImageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld",index+1]]];
                 
