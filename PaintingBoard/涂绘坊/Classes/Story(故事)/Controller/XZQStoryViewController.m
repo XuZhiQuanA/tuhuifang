@@ -1888,8 +1888,6 @@
         }
     
     
-    
-    
     //点击故事弹出弹框放在这里: 将这里封装的代码放在点击xib按钮调用的方法中 与情节按钮区分的话用tag区分就行了
     //弹出弹框
     ZJAnimationPopStyle popStyle =  ZJAnimationPopStyleShakeFromBottom;
@@ -4645,7 +4643,9 @@
                     btn.name = @"threeBoys";
                     
                     //三个和尚的故事动画url
-                    btn.storyVideoURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"三个和尚的故事" ofType:@"mp4"]];
+//                    btn.storyVideoURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"三个和尚的故事" ofType:@"mp4"]];
+                    
+                    btn.storyVideoURL = [NSURL URLWithString:@"http://192.168.43.152:8080/threeBoys.mp4"];
                     
                     break;
                 case 1:
@@ -4656,7 +4656,8 @@
                     label.textColor = [UIColor colorWithRed:196/255.0 green:72/255.0 blue:119/255.0 alpha:1];
                     btn.name = @"bamboo";
                     
-                    btn.storyVideoURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"竹里馆" ofType:@"mp4"]];
+//                    btn.storyVideoURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"竹里馆" ofType:@"mp4"]];
+                    btn.storyVideoURL = [NSURL URLWithString:@"http://192.168.43.152:8080/bamboo.mp4"];
                     break;
                 case 2:
 //                    [innerBtn setBackgroundImage:[UIImage imageNamed:@"bluebook"] forState:UIControlStateNormal];
@@ -6400,9 +6401,11 @@ static NSInteger k = 0;
      //传递url 开始播放教学视频
      //三个和尚的故事动画url
     if ([self.currentNameBtn.name rangeOfString:@"threeBoys"].location != NSNotFound) {
-        self.currentNameBtn.storyVideoURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"threeBoysTeach" ofType:@"mp4"]];
+//        self.currentNameBtn.storyVideoURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"threeBoysTeach" ofType:@"mp4"]];
+        self.currentNameBtn.storyVideoURL = [NSURL URLWithString:@"http://192.168.43.152:8080/threeBoysTeach.mp4"];
     }else if ([self.currentNameBtn.name rangeOfString:@"bamboo"].location != NSNotFound){
-        self.currentNameBtn.storyVideoURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"bambooTeach" ofType:@"mp4"]];
+//        self.currentNameBtn.storyVideoURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"bambooTeach" ofType:@"mp4"]];
+        self.currentNameBtn.storyVideoURL = [NSURL URLWithString:@"http://192.168.43.152:8080/bambooTeach.mp4"];
     }
 //     self.currentNameBtn.storyVideoURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"三个和尚的故事" ofType:@"mp4"]];
      

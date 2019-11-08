@@ -859,8 +859,7 @@ static CGFloat offsetX = 0;
         self.currentClickBtn = self.storySmallBtn;
         
     }
-    
-    
+
 }
 
 #pragma 小图标按钮调用方法

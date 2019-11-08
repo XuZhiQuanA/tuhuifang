@@ -38,6 +38,7 @@
     [self.playerVC.player play];
     
     [self.view bringSubviewToFront:self.superFrameView];
+
 }
 
 - (void)setTelevisionOutImage:(UIImage *)televisionOutImage{

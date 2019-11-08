@@ -77,18 +77,14 @@
 		F400E8432360D4AA00C75567 /* ThreeBoys_8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F400E8372360D4AA00C75567 /* ThreeBoys_8.mp3 */; };
 		F400E8442360D4AA00C75567 /* ThreeBoys_9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F400E8382360D4AA00C75567 /* ThreeBoys_9.mp3 */; };
 		F400E8482360E4F200C75567 /* XZQLaunchIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F400E8472360E4F200C75567 /* XZQLaunchIViewController.m */; };
-		F40B72FC234857D700F6C45C /* 竹里馆.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F40B72FB234857C900F6C45C /* 竹里馆.mp4 */; };
 		F40B7308234862EC00F6C45C /* ZJXibFoctory.m in Sources */ = {isa = PBXBuildFile; fileRef = F40B7301234862EC00F6C45C /* ZJXibFoctory.m */; };
 		F40B7309234862EC00F6C45C /* ZJXibFoctory.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40B7302234862EC00F6C45C /* ZJXibFoctory.xib */; };
 		F40B730A234862EC00F6C45C /* SlideSelectCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40B7303234862EC00F6C45C /* SlideSelectCardView.xib */; };
 		F40B730B234862EC00F6C45C /* SlideSelectCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F40B7305234862EC00F6C45C /* SlideSelectCardView.m */; };
 		F40B730C234862EC00F6C45C /* ZJAnimationPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = F40B7307234862EC00F6C45C /* ZJAnimationPopView.m */; };
-		F40B730E234884D100F6C45C /* 三个和尚的故事.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F40B72F923483C6000F6C45C /* 三个和尚的故事.mp4 */; };
 		F40B73142348ACAF00F6C45C /* XZQSmallWindowVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40B73132348ACAF00F6C45C /* XZQSmallWindowVideoViewController.m */; };
 		F40B73172348CCC000F6C45C /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40B73162348CCC000F6C45C /* AViewController.m */; };
 		F4116FE3235C71FD0006B891 /* XZQImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4116FE2235C71FD0006B891 /* XZQImageView.m */; };
-		F414DDA8236204210093BFD4 /* bambooTeach.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F414DDA6236204210093BFD4 /* bambooTeach.mp4 */; };
-		F414DDA9236204210093BFD4 /* threeBoysTeach.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F414DDA7236204210093BFD4 /* threeBoysTeach.mp4 */; };
 		F418A479235F4DFA008E4CF4 /* LYSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = F418A471235F4DFA008E4CF4 /* LYSlider.m */; };
 		F418A47A235F4DFA008E4CF4 /* UIButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F418A473235F4DFA008E4CF4 /* UIButton+Category.m */; };
 		F418A47B235F4DFA008E4CF4 /* LYCarrouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = F418A474235F4DFA008E4CF4 /* LYCarrouselView.m */; };
@@ -235,8 +231,6 @@
 		F400E8382360D4AA00C75567 /* ThreeBoys_9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ThreeBoys_9.mp3; sourceTree = "<group>"; };
 		F400E8462360E4F200C75567 /* XZQLaunchIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQLaunchIViewController.h; sourceTree = "<group>"; };
 		F400E8472360E4F200C75567 /* XZQLaunchIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQLaunchIViewController.m; sourceTree = "<group>"; };
-		F40B72F923483C6000F6C45C /* 三个和尚的故事.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "三个和尚的故事.mp4"; sourceTree = "<group>"; };
-		F40B72FB234857C900F6C45C /* 竹里馆.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "竹里馆.mp4"; sourceTree = "<group>"; };
 		F40B7300234862EC00F6C45C /* SlideSelectCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideSelectCardView.h; sourceTree = "<group>"; };
 		F40B7301234862EC00F6C45C /* ZJXibFoctory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJXibFoctory.m; sourceTree = "<group>"; };
 		F40B7302234862EC00F6C45C /* ZJXibFoctory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZJXibFoctory.xib; sourceTree = "<group>"; };
@@ -251,8 +245,6 @@
 		F40B73162348CCC000F6C45C /* AViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
 		F4116FE1235C71FD0006B891 /* XZQImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZQImageView.h; sourceTree = "<group>"; };
 		F4116FE2235C71FD0006B891 /* XZQImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZQImageView.m; sourceTree = "<group>"; };
-		F414DDA6236204210093BFD4 /* bambooTeach.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bambooTeach.mp4; sourceTree = "<group>"; };
-		F414DDA7236204210093BFD4 /* threeBoysTeach.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = threeBoysTeach.mp4; sourceTree = "<group>"; };
 		F418A471235F4DFA008E4CF4 /* LYSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSlider.m; sourceTree = "<group>"; };
 		F418A472235F4DFA008E4CF4 /* BlockTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockTimer.h; sourceTree = "<group>"; };
 		F418A473235F4DFA008E4CF4 /* UIButton+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Category.m"; sourceTree = "<group>"; };
@@ -502,7 +494,6 @@
 				F4DF8E3A2361B86400EF1F47 /* mp3 */,
 				F418A47D235F5945008E4CF4 /* images */,
 				F4737154234B01520005195B /* Record */,
-				F40B72F823483C5600F6C45C /* video */,
 				C94A574822741DCD00C65702 /* AppDelegate.h */,
 				C94A574922741DCD00C65702 /* AppDelegate.m */,
 				C900A66F22864B5400DC1F47 /* Classes */,
@@ -759,17 +750,6 @@
 			path = "LaunchImage(显示程序启动图)";
 			sourceTree = "<group>";
 		};
-		F40B72F823483C5600F6C45C /* video */ = {
-			isa = PBXGroup;
-			children = (
-				F414DDA6236204210093BFD4 /* bambooTeach.mp4 */,
-				F414DDA7236204210093BFD4 /* threeBoysTeach.mp4 */,
-				F40B72F923483C6000F6C45C /* 三个和尚的故事.mp4 */,
-				F40B72FB234857C900F6C45C /* 竹里馆.mp4 */,
-			);
-			name = video;
-			sourceTree = "<group>";
-		};
 		F40B72FF234862AA00F6C45C /* ZJAnimationPopView2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -900,9 +880,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F418A48A235F5945008E4CF4 /* mm2.jpeg in Resources */,
-				F40B730E234884D100F6C45C /* 三个和尚的故事.mp4 in Resources */,
 				F4737167234B01660005195B /* details_matchGirl_9.mp3 in Resources */,
-				F40B72FC234857D700F6C45C /* 竹里馆.mp4 in Resources */,
 				F400E8392360D4AA00C75567 /* ThreeBoys_1.mp3 in Resources */,
 				F4DF8E3C2361B89000EF1F47 /* Deep East Music - Sunny Jim.mp3 in Resources */,
 				F400E83F2360D4AA00C75567 /* ThreeBoys_5.mp3 in Resources */,
@@ -934,8 +912,6 @@
 				F400E8292360CC6B00C75567 /* BamBoo_1.mp3 in Resources */,
 				F418A48C235F5945008E4CF4 /* mm0.jpeg in Resources */,
 				F400E83B2360D4AA00C75567 /* ThreeBoys_3.mp3 in Resources */,
-				F414DDA8236204210093BFD4 /* bambooTeach.mp4 in Resources */,
-				F414DDA9236204210093BFD4 /* threeBoysTeach.mp4 in Resources */,
 				F418A48B235F5945008E4CF4 /* mm3.jpeg in Resources */,
 				F400E8412360D4AA00C75567 /* ThreeBoys_10.mp3 in Resources */,
 				F473715F234B01660005195B /* details_matchGirl_7.mp3 in Resources */,
