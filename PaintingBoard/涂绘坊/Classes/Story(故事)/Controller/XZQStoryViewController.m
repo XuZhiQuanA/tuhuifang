@@ -6420,9 +6420,6 @@ static NSInteger k = 0;
     //pictureFolderPath = /var/mobile/Containers/Data/Application/F32BC9FB-5861-488B-9F7A-B8C92BBBD984/Library/Caches/PHouse/picture
     
     
-    
-    
-    
     //给即将要保存的图片赋值路径
     [self postPathToWillBeSavedPicture];
     
