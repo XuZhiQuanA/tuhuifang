@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PhotoCell">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gl-8o-GhE">
+                        <rect key="frame" x="5" y="5" width="90" height="90"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="7gl-8o-GhE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="0QD-16-wWn"/>
+                <constraint firstItem="7gl-8o-GhE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="DaK-aN-g1g"/>
+                <constraint firstAttribute="trailing" secondItem="7gl-8o-GhE" secondAttribute="trailing" constant="5" id="WB7-Uh-VUl"/>
+                <constraint firstAttribute="bottom" secondItem="7gl-8o-GhE" secondAttribute="bottom" constant="5" id="Yrj-G7-UxU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <connections>
+                <outlet property="backgroundBtn" destination="7gl-8o-GhE" id="q62-zY-dZX"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="150.66964285714286"/>
+        </collectionViewCell>
+    </objects>
+</document>
