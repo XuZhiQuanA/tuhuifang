@@ -1941,7 +1941,7 @@
                     self.customView.showOperaion = @"视频和故事情节请耐心等待更新哦";
                     
         //            self.customView.storyOrPlotImage = [UIImage imageNamed:@"logoOfStory7"];
-                    self.customView.storyOrPlotImage = [UIImage OriginalImageWithImage:[UIImage imageNamed:@"wen"]];
+                    self.customView.storyOrPlotImage = [UIImage OriginalImageWithImage:[UIImage imageNamed:@"you"]];
         }else if ([btn.name isEqualToString:@"zao"]){
                     _customView = [SlideSelectCardView xib8];
                     self.customView.title = @"《凿壁偷光》";

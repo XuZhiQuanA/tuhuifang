@@ -233,7 +233,8 @@
         //取消滚动条
         scrollV.showsHorizontalScrollIndicator = NO;
         
-        
+        //不让用户滚动
+        scrollV.scrollEnabled = false;
         
         //设置代理 - 因为点击过快可能会出现偏移过度问题
         scrollV.delegate = self;
@@ -397,20 +398,36 @@ static CGFloat offsetX = 0;
     //右边的是1
     if (btn.tag == 0) {
 
-        if (self.funcScrollView.contentOffset.x > 0 || offsetX > 0) {
-            
-            offsetX -= ScreenWidth;
-   
+//        连续点击的话 这里会进行多次 应该将判断条件放在后面
+        
+        offsetX -= ScreenWidth;
+        
+        if (offsetX < 0) {
+            offsetX = 0;
         }
+        
+//        if (self.funcScrollView.contentOffset.x > 0 || offsetX > 0) {
+//
+//            offsetX -= ScreenWidth;
+//
+//        }
         
 
     }else{
         //在之前的基础上加多少
-        if (self.funcScrollView.contentOffset.x < 2*ScreenWidth || offsetX < 2*ScreenWidth) {
-            offsetX += ScreenWidth;
+        offsetX += ScreenWidth;
+        
+        if (offsetX > 2*ScreenWidth) {
+            offsetX = 2*ScreenWidth;
         }
         
+//        if (self.funcScrollView.contentOffset.x < 2*ScreenWidth || offsetX < 2*ScreenWidth) {
+//            offsetX += ScreenWidth;
+//        }
+        
     }
+    
+    
     
     [self.funcScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
     
