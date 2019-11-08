@@ -145,8 +145,6 @@
     return _storySmallBtn;
 }
 
-
-
 - (XZQButton *)albumSmallBtn{
     if (_albumSmallBtn == nil) {
         XZQButton *btn = [[XZQButton alloc] init];
@@ -160,7 +158,6 @@
         
         btn.bigSize = CGSizeMake(ScreenWidth *0.1212, ScreenHeight *0.1618);
         
-//        btn.image = [UIImage OriginalImageWithImage:[UIImage imageNamed:@"changes_albumSmallBtnNormal"]];
         [btn setBackgroundImage:[UIImage OriginalImageWithImage:[UIImage imageNamed:@"changes_albumSmallBtnNormal"]] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(changeImageAndOffset:) forControlEvents:UIControlEventTouchUpInside];
         _albumSmallBtn = btn;
@@ -395,8 +392,8 @@ static CGFloat offsetX = 0;
     
     
     
-    //右边的是1
-    if (btn.tag == 0) {
+    
+    if (btn.tag == 0) {//点击了向左的按钮
 
 //        连续点击的话 这里会进行多次 应该将判断条件放在后面
         
@@ -405,25 +402,17 @@ static CGFloat offsetX = 0;
         if (offsetX < 0) {
             offsetX = 0;
         }
-        
-//        if (self.funcScrollView.contentOffset.x > 0 || offsetX > 0) {
-//
-//            offsetX -= ScreenWidth;
-//
-//        }
+    
         
 
-    }else{
+    }else{//点击了向右的按钮 tag == 1
+        
         //在之前的基础上加多少
         offsetX += ScreenWidth;
         
         if (offsetX > 2*ScreenWidth) {
             offsetX = 2*ScreenWidth;
         }
-        
-//        if (self.funcScrollView.contentOffset.x < 2*ScreenWidth || offsetX < 2*ScreenWidth) {
-//            offsetX += ScreenWidth;
-//        }
         
     }
     
@@ -814,20 +803,8 @@ static CGFloat offsetX = 0;
 
 //    NSInteger i = offsetX / ScreenWidth;
     
-    if (offsetX >=0 && offsetX < ScreenWidth) {
-        
-        //画板小按钮变大
-//        self.paintBoardSmallImageView.image = [UIImage OriginalImageWithImage:[UIImage imageNamed:@"changes_paintBoardSmallBtnHighlight"]];
-//        self.paintBoardSmallImageView.bounds = CGRectMake(0, 0, self.paintBoardSmallImageView.bigSize.width, self.paintBoardSmallImageView.bigSize.height);
-//
-//        //其他两个正常
-//        self.albumSmallImageView.image = [UIImage OriginalImageWithImage:[UIImage imageNamed:@"changes_albumSmallBtnNormal"]];
-//        self.albumSmallImageView.bounds = CGRectMake(0, 0, self.albumSmallImageView.smallSize.width, self.albumSmallImageView.smallSize.height);
-//
-//        self.storySmallImageView.image = [UIImage OriginalImageWithImage:[UIImage imageNamed:@"changes_storySmallBtnNormal"]];
-//        self.storySmallImageView.bounds = CGRectMake(0, 0, self.storySmallImageView.smallSize.width, self.storySmallImageView.smallSize.height);
-        
-        
+
+    if (offsetX / ScreenWidth == 0) {
         
         //按钮
         //画板小按钮变大
@@ -843,8 +820,11 @@ static CGFloat offsetX = 0;
         [self.storySmallBtn setBackgroundImage:[UIImage OriginalImageWithImage:[UIImage imageNamed:@"changes_storySmallBtnNormal"]] forState:UIControlStateNormal];
         self.storySmallBtn.bounds = CGRectMake(0, 0, self.storySmallBtn.smallSize.width, self.storySmallBtn.smallSize.height);
         
+        //变大的是就是点前点击的按钮
+        self.currentClickBtn = self.paintBoardSmallBtn;
         
-    }else if (offsetX >= ScreenWidth && offsetX < 2*ScreenWidth){
+        
+    }else if (offsetX / ScreenWidth == 1){
         
         
         [self.paintBoardSmallBtn setBackgroundImage:[UIImage OriginalImageWithImage:[UIImage imageNamed:@"changes_paintBoardSmallBtnNormal"]] forState:UIControlStateNormal];
@@ -857,8 +837,11 @@ static CGFloat offsetX = 0;
         [self.storySmallBtn setBackgroundImage:[UIImage OriginalImageWithImage:[UIImage imageNamed:@"changes_storySmallBtnNormal"]] forState:UIControlStateNormal];
         self.storySmallBtn.bounds = CGRectMake(0, 0, self.storySmallBtn.smallSize.width, self.storySmallBtn.smallSize.height);
         
+        //变大的是就是点前点击的按钮
+        self.currentClickBtn = self.albumSmallBtn;
         
-    }else if (offsetX >= 2*ScreenWidth && offsetX <3*ScreenWidth){
+        
+    }else if (offsetX / ScreenWidth == 2){
         
 
         [self.paintBoardSmallBtn setBackgroundImage:[UIImage OriginalImageWithImage:[UIImage imageNamed:@"changes_paintBoardSmallBtnNormal"]] forState:UIControlStateNormal];
@@ -871,6 +854,9 @@ static CGFloat offsetX = 0;
         //故事小按钮变大
         [self.storySmallBtn setBackgroundImage:[UIImage OriginalImageWithImage:[UIImage imageNamed:@"changes_storySmallBtnHighlight"]] forState:UIControlStateNormal];
         self.storySmallBtn.bounds = CGRectMake(0, 0, self.storySmallBtn.bigSize.width, self.storySmallBtn.bigSize.height);
+        
+        //变大的是就是点前点击的按钮
+        self.currentClickBtn = self.storySmallBtn;
         
     }
     
@@ -885,12 +871,13 @@ static CGFloat offsetX = 0;
     [self isCurrentClickBtnAndChangeImageAndOffset:btn];
     
     
-    
     self.currentClickBtn = btn;
 }
 
 #pragma 判断是不是当前点击的按钮并切换图片
 - (void)isCurrentClickBtnAndChangeImageAndOffset:(XZQButton *)btn{
+    
+    NSLog(@"%s",__func__);
     
     //如果当前点击的按钮不是放大的按钮
     if (btn.tag != self.currentClickBtn.tag) {
@@ -920,6 +907,9 @@ static CGFloat offsetX = 0;
         break;
             
         default:
+                
+            NSLog(@"666");
+                
             break;
     }
         
