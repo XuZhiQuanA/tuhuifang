@@ -194,6 +194,11 @@
         LYCarrouselView *carr;
         
         if (self.oneStoryPictures.count != 0) {
+            
+            //创建新的弹框
+            [self popSystemPicture];
+            UIImage *image = [UIImage OriginalImageWithImage:[UIImage imageNamed:@"remindPicture_2"]];
+            
             carr = [[LYCarrouselView alloc] initWithFrame:CGRectMake(0, 0, self.customView.bounds.size.width, self.customView.bounds.size.height) images:self.oneStoryPictures callback:^(NSInteger index, NSInteger event) {
 
                 NSLog(@"%ld %@", index, event == 1 ? @"点击" : @"长按");
@@ -205,7 +210,18 @@
                 
                 [weakSelf.ZJAPopView2 pop];
                 //1.2弹出新的弹框 - 点击没有拿到自己画的东西
-                weakSelf.systemImageView.image = [UIImage OriginalImageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld",index+1]]];
+                
+                
+                if (index >= weakSelf.oneStoryPictures.count) {
+                    weakSelf.systemImageView.image = image;
+                }else{
+                    weakSelf.systemImageView.image = weakSelf.oneStoryPictures[index];
+                }
+                
+                
+                
+                
+                NSLog(@"weakSelf.systemImageView.image: %@ arrayCount: %ld",weakSelf.systemImageView,weakSelf.oneStoryPictures.count);
             }];
             
             
@@ -1645,15 +1661,17 @@
     // 2.5 移除时动画时长
     //    popView.dismissAnimationDuration = 0.8f;
     
-    
+    __weak typeof(XZQAlbumViewController *)weakSelf = self;
     
     // 2.6 显示完成回调
     popView.popComplete = ^{
         NSLog(@"显示完成");
+        [weakSelf.musicPlayer play];
     };
     // 2.7 移除完成回调
     popView.dismissComplete = ^{
         NSLog(@"移除完成");
+        [weakSelf.musicPlayer pause];
     };
     
     // 4.显示弹框
@@ -1710,8 +1728,6 @@
     self.carrB = nil;
     self.customView = nil;
     
-    [self.musicPlayer pause];
-    
 }
 
 #pragma 创建一个给系统图片显示的弹框
@@ -1736,13 +1752,21 @@
     // 2.3 显示时是否监听屏幕旋转
     popView.isObserverOrientationChange = YES;
     
+    __weak typeof(XZQAlbumViewController *)weakSelf = self;
+    
     // 2.6 显示完成回调
     popView.popComplete = ^{
         NSLog(@"显示完成");
+        [weakSelf.musicPlayer play];
     };
     // 2.7 移除完成回调
+    
+    
+
     popView.dismissComplete = ^{
         NSLog(@"移除完成");
+        
+        [weakSelf.musicPlayer pause];
     };
     
 
@@ -1751,6 +1775,14 @@
 
 #pragma 监听播放完毕
 - (void)playFinishedBeingCalled{
-    [self.musicPlayer play];
+    
+    NSString *musicFilePath = [[NSBundle mainBundle] pathForResource:@"Deep East Music - Sunny Jim" ofType:@"mp3"];
+    NSURL *url = [NSURL fileURLWithPath:musicFilePath];
+    AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:url];
+    [self.musicPlayer replaceCurrentItemWithPlayerItem:playerItem];
+    
+    self.systemImageView == nil ? [self.musicPlayer pause] : [self.musicPlayer play];
+
+    
 }
 @end
