@@ -670,6 +670,10 @@
 #pragma 跳转到主功能界面
 - (void)jumpToMainFuncIB{
     self.tabBarController.selectedIndex = 6;
+    
+    //点击详情按钮
+    self.detailsBtn.isBigger = !self.detailsBtn.isBigger;
+    [self detailsBtnClick:self.detailsBtn];
 }
 
 #pragma 创建详情按钮
@@ -1210,6 +1214,13 @@
         
         NSLog(@"didSelectRow selectedConcreateRow= %ld",row);
         
+        //给帧动画数据清空
+        self.storyView.animationImages = nil;
+        
+        //显示模式:
+        self.storyView.contentMode = UIViewContentModeScaleToFill;
+        
+        
         //设置显示在右边的图片
         self.storyView.image = image;
         
@@ -1253,6 +1264,38 @@
         //设置显示在右边的图片
         self.storyView.image = [UIImage imageNamed:[NSString stringWithFormat:@"logoOfStory%ld",row+1]];
         
+        NSMutableArray *gifArray = [NSMutableArray array];
+
+        if (row % 2 == 0) {
+            for (NSInteger i = 1; i < 38; i++) {
+                [gifArray addObject:[UIImage OriginalImageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"gif_%ld",i]]]];
+                
+                //设置动画的播放次数
+                //1s30帧
+                self.storyView.animationDuration = 2.468;
+//                self.storyView.contentMode = UIViewContentModeCenter;//默认是0
+            }
+        }else{
+            for (NSInteger i = 1; i < 48; i++) {
+                [gifArray addObject:[UIImage OriginalImageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"gif_1_%ld",i]]]];
+                //设置动画的播放次数
+                //1s30帧
+                self.storyView.animationDuration = 3.133;
+
+            }
+        }
+
+        //居中显示
+        self.storyView.contentMode = UIViewContentModeCenter;//
+        NSLog(@"contentMode %ld",self.storyView.contentMode);//4
+        
+        //帧动画 数据数组
+        self.storyView.animationImages = gifArray;
+        
+        //设置动画的播放次数
+        self.storyView.animationRepeatCount = 0;
+        
+        [self.storyView startAnimating];
         
     }
     

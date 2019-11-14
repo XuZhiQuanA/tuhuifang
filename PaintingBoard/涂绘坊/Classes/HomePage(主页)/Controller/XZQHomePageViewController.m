@@ -792,7 +792,12 @@
 
 #pragma 跳转到主功能界面
 - (void)jumpToMainFuncIB{
+    
+    
     self.tabBarController.selectedIndex = 6;
+    
+    //点击了详情按钮
+    
 }
 
 #pragma 主功能界面设置用户信息 (左上角的)
