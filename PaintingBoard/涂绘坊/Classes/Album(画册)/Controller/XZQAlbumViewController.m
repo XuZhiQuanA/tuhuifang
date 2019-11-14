@@ -1234,19 +1234,17 @@
         //设置显示在右边的图片
         self.storyView.image = image;
         
-        
-        
-        
         //设置上方显示的文字
         if (self.dictArray.count != 0) {
             
-            //            self.storyDescribition.text = [self matchingString:fileName];
+            
             self.storyDescribition.text = [NSString stringWithFormat:@"%@_%ld",[self matchingString:fileName],(row+1)];
             
         }else{
             self.storyDescribition.text = @"还没有开始画画";
         }
         
+        //设置右边的文字 图片
         [self setRightPictureAndLabel:row];
         
         
@@ -1428,6 +1426,13 @@
     
     //显示作品动画按钮
     [self showAnimateOfSelfDefinePicture];
+    
+    //点击两次详情按钮 因为左边的图片没有加载完毕 点击之后就可以了
+    for (NSInteger i = 0; i < 2; i++) {
+        self.detailsBtn.isBigger = !self.detailsBtn.isBigger;
+        [self detailsBtnClick:self.detailsBtn];
+    }
+    
     
     
 }
