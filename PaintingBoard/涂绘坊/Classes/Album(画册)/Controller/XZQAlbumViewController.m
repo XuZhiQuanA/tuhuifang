@@ -80,7 +80,6 @@
 /**显示的故事情节图片 */
 @property(nonatomic,strong) UIImageView *storyView;
 
-
 /**存放绘画图片字典的数组 */
 @property(nonatomic,readwrite,strong) NSMutableArray *dictArray;
 
@@ -582,7 +581,6 @@
     //布局大图位置
     [self createStoryView];
     
-    
     //一开始选中第一行
     [self pickerView:self.pickerView2 didSelectRow:0 inComponent:0];
     
@@ -807,7 +805,7 @@
     [self.view addSubview:self.pickerView];
     
     
-    //一开始不让具体的故事画作显示出来
+    //一开始不让具体的故事画作显示出来 pickerView是具体画作
     self.pickerView.alpha = 0;
     
     
@@ -859,27 +857,37 @@
         
         if (self.allConcreateDict.count != 0) {
             //给row设置图片
-            
-            //allConcreateDict 字典 存储乱序 这里想要按顺序展示 给字典设置个方法 让其顺序展示
-            NSInteger i = row + 1;
-            UIImage *image;
-            
-            for (NSString *str in self.pathAndImageDict) {
+
+            if (self.currentSelectedAtlas == nil) {
+                //allConcreateDict 字典 存储乱序 这里想要按顺序展示 给字典设置个方法 让其顺序展示
+                NSInteger i = row + 1;
+                UIImage *image;
                 
-                if ([str rangeOfString:[NSString stringWithFormat:@"%ld",i]].location != NSNotFound) {
+                for (NSString *str in self.pathAndImageDict) {
                     
-                    image = [self.pathAndImageDict objectForKey:str];
-                    self.currentRow = row;
-                    
-//                    [self addImageNameToSortArray:str];
-                    break;
-                    
+                    if ([str rangeOfString:[NSString stringWithFormat:@"%ld",i]].location != NSNotFound) {
+                        
+                        image = [self.pathAndImageDict objectForKey:str];
+                        self.currentRow = row;
+                        
+
+                        break;
+                        
+                    }
                 }
+                
+
+                myview.image = image;
+            }else{
+                
+                [self dataFromDictToArray:self.currentSelectedAtlas array:self.oneStoryPictures];
+                myview.image = self.oneStoryPictures[row];
+                
+                
             }
             
-//            myview.image = [self.allConcreateDict objectForKey:[NSString stringWithFormat:@"%ld",row]];
-            myview.image = image;
-            //image
+            
+            
             
         }else{
             
@@ -936,6 +944,8 @@
 
 #pragma 详情按钮点击
 - (void)detailsBtnClick:(XZQNameButton *)btn{
+    
+    
     
     if (btn.isBigger) {
         NSLog(@"detailsBtnClick");
@@ -1058,42 +1068,42 @@
     //右边的图
 //    UIImage *image = [UIImage imageWithContentsOfFile:[self.currentSelectedAtlas objectForKey:[NSString stringWithFormat:@"%@_%ld.png",fileName,(row+1)]]];
     
-    
-    
-//    UIImage *image = [UIImage imageWithContentsOfFile:[self.currentSelectedAtlas objectForKey:fileName]];
-    
     UIImage *image;
     
-    if (self.pathAndImageDict.count != 0) {
-        NSInteger i = row + 1;
-            
-        for (NSString *str in self.pathAndImageDict) {
-            
-            if ([str rangeOfString:[NSString stringWithFormat:@"%ld",i]].location != NSNotFound) {
+    if (self.currentSelectedAtlas == nil) {
+        if (self.pathAndImageDict.count != 0) {
+            NSInteger i = row + 1;
                 
-                image = [self.pathAndImageDict objectForKey:str];
-                self.currentRow = row;
-    
-                break;
+            for (NSString *str in self.pathAndImageDict) {
                 
+                if ([str rangeOfString:[NSString stringWithFormat:@"%ld",i]].location != NSNotFound) {
+                    
+                    image = [self.pathAndImageDict objectForKey:str];
+                    self.currentRow = row;
+        
+                    break;
+                    
+                }
             }
+        }else{
+            
         }
+
+        self.currentImage = image;
+        //设置显示在右边的图片
+        self.storyView.image = image;
     }else{
         
+        [self dataFromDictToArray:self.currentSelectedAtlas array:self.oneStoryPictures];
+        
+        self.currentImage = self.oneStoryPictures[row];
+        //设置显示在右边的图片
+        self.storyView.image = self.oneStoryPictures[row];
+        
     }
+
+    NSLog(@"currentSelectedAtlas:%@ oneStoryPictures:%@",self.currentSelectedAtlas,self.oneStoryPictures);
     
-    
-    
-    
-    
-    
-    
-    
-    
-    self.currentImage = image;
-    
-    //设置显示在右边的图片
-    self.storyView.image = image;
     
     //设置上方显示的文字
     if (self.dictArray.count != 0) {
@@ -1237,6 +1247,7 @@
             self.storyDescribition.text = @"还没有开始画画";
         }
         
+        [self setRightPictureAndLabel:row];
         
         
         
@@ -1567,6 +1578,8 @@
     NSLog(@"%s",__func__);
     
     self.isViewWillAppear = false;
+    
+    NSLog(@"%s : currentSelectedAtlas:%@",__func__,self.currentSelectedAtlas);
     
     [self dataFromDictToArray:self.currentSelectedAtlas array:self.oneStoryPictures];
     
